@@ -27,7 +27,6 @@ public class ClientLogAction extends ActionSupport {
 		System.out.println("DDDDXXXXXXXXXXXXDDDDDSFsgsgSGSGSGSD");
 		PrintWriter out = response.getWriter();
 		out.print("1");
-		
 		return null;
 	}
 	public String save() throws Exception{
