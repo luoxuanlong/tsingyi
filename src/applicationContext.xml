@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+<!-- dataSource config -->
+
+    <bean id ="dataSource" class ="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> 
+        <property name="driverClassName" value="org.gjt.mm.mysql.Driver" /> 
+        <property name="url" value="jdbc:mysql://localhost:3306/test" /> 
+        <property name="username" value="root" /> 
+        <property name="password" value="81830975"/> 
+    </bean> 
+    
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		  <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>		
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+          <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="transactionInterceptor"  class="org.springframework.transaction.interceptor.TransactionInterceptor">       
+        <property name="transactionManager">       
+            <ref bean="transactionManager" />       
+        </property>                 
+        <property name="transactionAttributes">       
+            <props>       
+                <prop key="save*">PROPAGATION_REQUIRED</prop>       
+                <prop key="del*">PROPAGATION_REQUIRED</prop>       
+                <prop key="update*">PROPAGATION_REQUIRED</prop>       
+                <prop key="create*">PROPAGATION_REQUIRED</prop>       
+                <prop key="add*">PROPAGATION_REQUIRED</prop>       
+                <prop key="find*">PROPAGATION_REQUIRED</prop>       
+                <prop key="get*">PROPAGATION_REQUIRED</prop>       
+                <prop key="*">PROPAGATION_REQUIRED</prop>       
+            </props>       
+        </property>       
+    </bean>     
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+    <bean id="logDao" class="com.ts.dao.ClientErrorLogDaoImpl" scope="singleton">
+        <property name="sessionFactory"><ref local="sessionFactory"/></property>
+    </bean>
+    <bean id="logService" class="com.ts.service.ClientErrorLogServiceImpl"> 
+        <property name="logDao" ref="logDao"></property>
+    </bean>
+    <bean id="clientLogAction" class="com.ts.action.ClientLogAction" scope="prototype">  
+        <property name="logService" ref="logService"></property>       
+    </bean>
+    <bean id="queryClientLogAction" class="com.ts.action.QueryClientLogAction" scope="prototype">  
+        <property name="logService" ref="logService"></property>       
+    </bean>
+</beans>
