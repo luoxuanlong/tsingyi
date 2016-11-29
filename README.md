@@ -1,7 +1,0 @@
-# tsingyi
-tsingyiRepository
-
-
-test
-
-test
