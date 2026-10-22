@@ -95,6 +95,10 @@ const YEARS_DATA = {
         { loc: "鄱阳-寻阳", gen: "凌统·承烈都尉", total: "0.1-0.2万", cav: 0, inf: "0.05-0.1万", nav: "0.05-0.1万", note: "守备", strength: "C" },
         { loc: "乐安", gen: "韩当·先登校尉", total: "约2000", cav: 50, inf: 1000, nav: 950, note: "授兵二千骑五十匹", strength: "A" },
     ],
+    arrows: [
+        { from: "邺城-许", to: "宛", faction: "wei", label: "河北平定", kind: "land" },
+    ],
+    battles: [],
 },
 
 "208_1": {
@@ -117,6 +121,12 @@ const YEARS_DATA = {
         { loc: "夏口", gen: "董袭·偏将军", total: "0.1-0.2万", cav: 0, inf: "0.05-0.1万", nav: "0.05-0.1万", note: "断绁敢死队", strength: "A/C" },
         { loc: "夏口", gen: "孙权自将", total: "0.3-0.5万", cav: 100, inf: "0.1-0.2万", nav: "0.2-0.3万", note: "中军", strength: "C" },
         { loc: "柴桑", gen: "徐盛·柴桑长", total: 500, cav: 0, inf: 200, nav: 300, note: "后方留守", strength: "A" },
+    ],
+    arrows: [
+        { from: "柴桑", to: "夏口", faction: "sun", label: "西征黄祖", kind: "naval" },
+    ],
+    battles: [
+        { loc: "夏口", name: "夏口之战", note: "吕蒙破前锋·董袭断绁" },
     ],
 },
 
@@ -145,6 +155,17 @@ const YEARS_DATA = {
     sun: [
         { loc: "夏口", gen: "周瑜·左督", total: "2万", cav: "200-300", inf: "0.8-0.9万", nav: "1-1.1万", note: "精兵三万", strength: "A各领万人/B" },
         { loc: "夏口", gen: "程普·右督", total: "1万", cav: "100-150", inf: "0.4-0.45万", nav: "0.5-0.55万", note: "右督", strength: "A各领万人/B" },
+    ],
+    arrows: [
+        { from: "宛", to: "新野", faction: "wei", label: "曹操七军南征", kind: "land" },
+        { from: "新野", to: "襄阳", faction: "wei", label: "入襄阳·琮降", kind: "land" },
+        { from: "襄阳", to: "江陵", faction: "wei", label: "取江陵", kind: "land" },
+        { from: "新野", to: "长坂", faction: "wei", label: "曹纯虎豹骑五千", kind: "cav" },
+        { from: "新野", to: "长坂", faction: "liu", label: "刘备携民南走", kind: "land", dashed: true },
+        { from: "长坂", to: "夏口", faction: "liu", label: "备败走夏口", kind: "land", dashed: true },
+    ],
+    battles: [
+        { loc: "长坂", name: "长坂坡之战", note: "曹纯五千追刘备·张飞断后" },
     ],
 },
 
@@ -178,6 +199,16 @@ const YEARS_DATA = {
         { loc: "沙羡", gen: "程普·江夏太守", total: "0.5-1万", cav: 50-100, inf: "0.2-0.3万", nav: "0.3-0.7万", note: "治沙羡", strength: "A治沙羡/C" },
         { loc: "夷陵", gen: "甘宁", total: "约1000", cav: 0, inf: 500, nav: 500, note: "前据夷陵", strength: "A《甘宁传》" },
     ],
+    arrows: [
+        { from: "江陵", to: "乌林", faction: "wei", label: "曹操沿江东下", kind: "naval" },
+        { from: "夏口", to: "赤壁", faction: "sun", label: "周瑜·程普联军", kind: "naval" },
+        { from: "赤壁", to: "夷陵", faction: "sun", label: "甘宁前据夷陵", kind: "naval" },
+        { from: "江陵", to: "华容", faction: "wei", label: "曹操败走华容道", kind: "land", dashed: true },
+    ],
+    battles: [
+        { loc: "赤壁", name: "赤壁之战", note: "黄盖十艘蒙冲诈降·纵火焚船" },
+        { loc: "乌林", name: "乌林之溃", note: "北船烧尽·岸上营落皆焚" },
+    ],
 },
 
 "209": {
@@ -208,6 +239,17 @@ const YEARS_DATA = {
         { loc: "夷陵", gen: "甘宁", total: "约1000", cav: 0, inf: 500, nav: 500, note: "仅满千人被围", strength: "A" },
         { loc: "江陵后方", gen: "凌统", total: "0.2-0.3万", cav: 0, inf: 1000, nav: "0.1-0.2万", note: "吕蒙计留凌统守后", strength: "A/C" },
         { loc: "沙羡", gen: "程普·江夏太守", total: "0.5-1万", cav: 50-100, inf: "0.2-0.3万", nav: "0.3-0.7万", note: "江夏", strength: "A/C" },
+    ],
+    arrows: [
+        { from: "赤壁", to: "江陵", faction: "sun", label: "周瑜围江陵", kind: "naval" },
+        { from: "赤壁", to: "夷陵", faction: "sun", label: "甘宁守夷陵", kind: "land" },
+        { from: "夏口", to: "汉水中游", faction: "liu", label: "关羽绝北道", kind: "land" },
+        { from: "江陵", to: "公安", faction: "liu", label: "刘备立营油江口", kind: "land" },
+        { from: "江陵", to: "当阳", faction: "wei", label: "曹仁北走", kind: "land", dashed: true },
+    ],
+    battles: [
+        { loc: "江陵", name: "江陵之围", note: "周瑜·程普围曹仁岁余·仁弃城走" },
+        { loc: "夷陵", name: "夷陵之守", note: "甘宁千余人拒曹仁五六千" },
     ],
 },
 
@@ -356,6 +398,14 @@ const YEARS_DATA = {
         { loc: "益阳", gen: "鲁肃+甘宁", total: "约1.3万", cav: "100-200", inf: "0.7-0.8万", nav: "0.6-0.7万", note: "单刀会", strength: "A" },
         { loc: "陆口", gen: "孙权自将（中军）", total: "约1万", cav: "200-300", inf: "0.4-0.5万", nav: "0.5-0.6万", note: "诸军节度", strength: "C" },
     ],
+    arrows: [
+        { from: "柴桑", to: "益阳", faction: "sun", label: "吕蒙引兵西上", kind: "naval" },
+        { from: "公安", to: "益阳", faction: "liu", label: "关羽三万南下", kind: "land" },
+        { from: "成都", to: "公安", faction: "liu", label: "刘备五万东下", kind: "land" },
+    ],
+    battles: [
+        { loc: "益阳", name: "益阳对峙", note: "双方面临大战·鲁肃单刀会" },
+    ],
 },
 
 "216": {
@@ -452,6 +502,14 @@ const YEARS_DATA = {
     sun: [
         { loc: "陆口", gen: "陆逊·偏将军右部督（代吕蒙）", total: "万余", cav: "200-300", inf: "0.5-0.6万", nav: "0.4-0.5万", note: "代吕蒙后关羽撤备", strength: "A" },
     ],
+    arrows: [
+        { from: "江陵", to: "襄阳", faction: "liu", label: "关羽北伐襄樊", kind: "land" },
+        { from: "宛", to: "樊城", faction: "wei", label: "于禁·庞德增援", kind: "land" },
+        { from: "襄阳", to: "沔北/石阳", faction: "liu", label: "关羽围石阳", kind: "land" },
+    ],
+    battles: [
+        { loc: "沔北/石阳", name: "水淹七军", note: "秋大霖雨·于禁七军没·斩庞德" },
+    ],
 },
 
 "219_2": {
@@ -481,6 +539,16 @@ const YEARS_DATA = {
         { loc: "夏口-江陵", gen: "孙皎·都护征虏将军（后继）", total: "0.5-1万", cav: "50-100", inf: "0.25-0.5万", nav: "0.25-0.5万", note: "后继", strength: "A后继/C" },
         { loc: "临沮-夹石", gen: "朱然、潘璋", total: "0.6-1万", cav: "100-200", inf: "0.3-0.5万", nav: "0.3-0.5万", note: "断关羽归路", strength: "A/C" },
         { loc: "沔水", gen: "蒋钦·水军", total: "0.3-0.5万", cav: 0, inf: "0.1-0.2万", nav: "0.2-0.3万", note: "断汉水退路", strength: "A督水军入沔" },
+    ],
+    arrows: [
+        { from: "柴桑", to: "公安", faction: "sun", label: "吕蒙白衣渡江", kind: "naval" },
+        { from: "公安", to: "江陵", faction: "sun", label: "袭取江陵", kind: "land" },
+        { from: "沔北/石阳", to: "临沮", faction: "liu", label: "关羽败退", kind: "land", dashed: true },
+        { from: "临沮", to: "章乡", faction: "sun", label: "潘璋追至章乡", kind: "cav" },
+    ],
+    battles: [
+        { loc: "江陵", name: "吕蒙袭荆州", note: "白衣渡江·公安降·江陵开城" },
+        { loc: "章乡", name: "章乡之斩", note: "关羽父子为马忠所擒" },
     ],
 },
 
@@ -560,6 +628,14 @@ const YEARS_DATA = {
         { loc: "夷陵-西陵", gen: "陆逊·辅国将军荆州牧", total: "3-4万", cav: "400-600", inf: "1.5-2万", nav: "1.5-2万", note: "战后分守", strength: "A五万战后分守" },
         { loc: "夷陵前线", gen: "朱然、潘璋、韩当等", total: "约1-2万", cav: 0, inf: "约1万", nav: "约1万", note: "追击/扼守峡口", strength: "A/C" },
     ],
+    arrows: [
+        { from: "成都", to: "夷陵", faction: "liu", label: "刘备东征", kind: "land" },
+        { from: "公安", to: "夷陵", faction: "liu", label: "水军东下", kind: "naval" },
+        { from: "柴桑", to: "夷陵", faction: "sun", label: "陆逊西上", kind: "naval" },
+    ],
+    battles: [
+        { loc: "夷陵", name: "夷陵之战", note: "陆逊火烧连营·刘备大败" },
+    ],
 },
 
 "222_2": {
@@ -627,6 +703,10 @@ const YEARS_DATA = {
         { loc: "武陵", gen: "潘濬", total: "0.3-0.5万", cav: 0, inf: "0.15-0.25万", nav: "0.15-0.25万", note: "守备", strength: "A/C" },
         { loc: "夏口", gen: "孙奂", total: "0.2-0.5万", cav: 0, inf: "0.1-0.25万", nav: "0.1-0.25万", note: "江夏", strength: "A/C" },
     ],
+    arrows: [
+        { from: "宛", to: "新野", faction: "wei", label: "曹丕三路退兵南归", kind: "land", dashed: true },
+    ],
+    battles: [],
 },
 
 };
