@@ -172,16 +172,26 @@ h3.year-title {
 
 /* ======== Map Card ======== */
 .map-card {
-    background: var(--bg2);
+    position: relative;
     border: 1px solid var(--rule);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--shadow);
+    background: #3b2f2f;
+    line-height: 0; /* 消除img下方间隙 */
 }
-.map-card canvas {
+.map-card .map-bg {
     display: block;
     width: 100%;
     height: auto;
+}
+.map-card canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
 }
 .map-card .map-caption {
     padding: 10px 14px;
@@ -189,6 +199,7 @@ h3.year-title {
     color: var(--muted);
     background: var(--bg);
     border-top: 1px solid var(--rule);
+    line-height: 1.4;
 }
 
 /* ======== Forces Table ======== */
@@ -513,6 +524,7 @@ footer li { margin-bottom: 6px; font-size: 0.88rem; }
             <div class="two-col">
                 <!-- 左：地图 -->
                 <div class="map-card">
+                    <img class="map-bg" src="assets/jingzhou_map.png" alt="荆州形势图">
                     <canvas id="map-${key}" width="968" height="883"></canvas>
                     <div class="map-caption">图 ${yearNum} · ${d.title} — 荆州三方驻军示意图（底图：荆州形势图）</div>
                 </div>
